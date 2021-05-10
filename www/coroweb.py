@@ -31,7 +31,7 @@ def get_required_kw_args(fn):
 	args=[]
 	params=inspect.signature(fn).parameters
 	for name,param in params.items():
-		if param.kind==inspect.Paramter.KWYWORD_ONLY and param.default==inspect.Parameter.empty:
+		if param.kind==inspect.Parameter.KEYWORD_ONLY and param.default==inspect.Parameter.empty:
 			args.append(name)
 	return tuple(args)
 
@@ -60,7 +60,7 @@ def has_request_arg(fn):
 	found=False
 	for name,param in params.items():
 		if name=='request':
-			found(True)
+			found=True
 			continue
 		if found and (param.kind!=insepct.Parameter.VAR_POSITIONAL and param.kind!=inspect.Parameter.KEYWORD_ONLY and param.kind!=inspect.Parameter.VAR_KEYWORD):
 			raise ValueError('request parameter must be the last named parameter in function: %s %s' %(fn.__name__,str(sig)))
@@ -69,11 +69,11 @@ def has_request_arg(fn):
 class RequestHandler(object):
 	def __init__(self,app,fn):
 		self._app=app
-		self._fn=fn
+		self._func=fn
 		self._has_request_arg=has_request_arg(fn)
 		self._has_var_kw_arg=has_var_kw_arg(fn)
 		self._has_named_kw_args=has_named_kw_args(fn)
-		self._named_kw_args=get_name_kw_args(fn)
+		self._named_kw_args=get_named_kw_args(fn)
 		self._required_kw_args=get_required_kw_args(fn)
 	async def __call__(self,request):
 		kw=None
@@ -135,7 +135,7 @@ def add_route(app,fn):
 	path=getattr(fn,'__route__',None)
 	if path is None or method is None:
 		raise ValueError('@get or @post not defined in %s.' %str(fn))
-	if not asyncio.iscoroutinefunction(fn) and not inspect.isgenerationfunction(fn):
+	if not asyncio.iscoroutinefunction(fn) and not inspect.isgeneratorfunction(fn):
 		fn = asyncio.coroutine(fn)
 	logging.info('add route %s %s => %s(%s)' %(method,path,fn.__name__,', '.join(inspect.signature(fn).parameters.keys())))
 	app.router.add_route(method,path,RequestHandler(app,fn))
@@ -154,7 +154,7 @@ def add_routes(app,module_name):
 		fn=getattr(mod,attr)
 		if callable(fn):
 			method=getattr(fn,'__method__',None)
-			path=getsttr(fn,'__route__',None)
+			path=getattr(fn,'__route__',None)
 			if method and path:
 				add_route(app,fn)
 

@@ -100,10 +100,10 @@ def logger_factory(app,handler):
 async def data_factory(app,handler):
     async def parse_data(request):
         if request.method=='POST':
-            if request.content_type.startwith('application/json'):
+            if request.content_type.startswith('application/json'):
                 request.data=await request.json()
                 logging.info('request json: %s' %str(request.__data__))
-            elif request.content_type.startwith('application/x-www-form-urlencoded'):
+            elif request.content_type.startswith('application/x-www-form-urlencoded'):
                 request.__data__=await request.post()
                 logging.info('request form: %s' %str(request.__data__))
         return (await handler(request))
@@ -120,7 +120,7 @@ async def response_factory(app,handler):
         r=await handler(request)
         if isinstance(r,web.StreamResponse):
             return r
-        if instance(r,bytes):
+        if isinstance(r,bytes):
             resp=web.Response(body=r)
             resp.content_type='application/octet-stream'
             return resp
@@ -134,7 +134,7 @@ async def response_factory(app,handler):
             return resp
         if isinstance(r,dict):
             template = r.get('__template__')
-            if tmeplate is None:
+            if template is None:
                 resp=web.Response(body=json.dumps(r,ensure_ascii=False,default =lambda o:o.__dict__).encode('utf-8'))
                 resp.content_type='application/json;charset=utf-8'
                 return resp
@@ -170,18 +170,7 @@ def datetime_filter(t):
     return r'%s年%s月%s日' %(dt.year,dt.month,dt.day)
 
 
-@get('/')
-def index(request):
-    return web.Response(body=b'<h1>Awesome</h1>',content_type='text/html')
-    # users=yield from User.findAll()
-    # return {
-    #     '__template__':'test.html'
-    # }
-    # users=yield from User.findAll()
-    # return {
-    #     '__template__':'test.html',
-    #     'users':users
-    # }
+
 
 '''
 async def init():
