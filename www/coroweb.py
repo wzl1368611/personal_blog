@@ -82,13 +82,13 @@ class RequestHandler(object):
 				if not request.content_type:
 					return web.HttpBadRequest('Missing Content-Type.')
 				ct = request.content_type.lower()
-				if ct.startwith('application/json'):
+				if ct.starstwith('application/json'):
 					params = await request.json()
 					if not isinstance(params,dict):
 						return web.HttpBadRequest('JSON body must be object.')
 					kw=params
-				elif ct.startwith('application/x-www-form-urlencoded') or ct.startwith('multipart/form-data'):
-					params = await request.post():
+				elif ct.startswith('application/x-www-form-urlencoded') or ct.startswith('multipart/form-data'):
+					params = await request.post()
 					kw=dict(**params)
 				else:
 					return web.HttpBadRequest('Unsupported Content-Type: %s' % request.content_type)
@@ -144,10 +144,12 @@ def add_routes(app,module_name):
 	if n==(-1):
 		mod=__import__(module_name,globals(),locals())
 	else:
-		name=module_name=[n+1:]
+		name=module_name[n+1:]
 		mod = getattr(__import__(module_name[:n],globals(),locals(),[name]),name)
+
+
 	for attr in dir(mod):
-		if attr.startwith('_'):
+		if attr.startswith('_'):
 			continue
 		fn=getattr(mod,attr)
 		if callable(fn):

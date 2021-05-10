@@ -4,10 +4,10 @@ logging.basicConfig(level=logging.INFO)
 import asyncio,os,json,time
 from datetime import datetime
 from aiohttp import web
-from jinja2 import Environment,FiltSystemLoader
+from jinja2 import Environment,FileSystemLoader
 import orm 
 from coroweb import add_routes,add_static
-
+from coroweb import *
 '''
 def index(request):
     return web.Response(body=b'<h1>Awesome</h1>',content_type='text/html')
@@ -15,10 +15,11 @@ def index(request):
 
 import functools
 import asyncio,inspect
+'''
 def get(path):
-    '''
-    Define decorator @get('/path')
-    '''
+    
+    #Define decorator @get('/path')
+    
     def decorator(func):
         @functools.wrap(func)
         def wrapper(*args,**kw):
@@ -64,7 +65,7 @@ def add_routes(app,module_name):
                 if method and path:
                     add_route(app,fn)
 
-
+'''
 def init_jinja2(app,**kw):
     logging.info('init jinja2 ...')
     options=dict(
@@ -73,13 +74,13 @@ def init_jinja2(app,**kw):
         block_end_string=kw.get('block_end_string','%}'),
         variable_start_string=kw.get('variable_start_string','{{'),
         variable_end_string=kw.get('variable_end_string','}}'),
-        auto_reload=ke.get('auto_reload',True)
+        auto_reload=kw.get('auto_reload',True)
         )
     path=kw.get('path',None)
     if path is None:
         path=os.path.join(os.path.dirname(os.path.abspath(__file__)),'templates')
     logging.info('set jinja template path: %s' % path)
-    env=Environment(loader=FiltSystemLoader(path),**options)
+    env=Environment(loader=FileSystemLoader(path),**options)
     filters = kw.get('filters',None)
     if filters is not None:
         for name,f in filters.items():
@@ -93,7 +94,7 @@ def logger_factory(app,handler):
         # 记载日志
         logging.info('Request: %s %s' %(request.method,request.path))
         # 继续处理请求
-        return yield from handler(request)
+        return (yield from handler(request))
     return logger
 
 async def data_factory(app,handler):
@@ -136,17 +137,18 @@ async def response_factory(app,handler):
             if tmeplate is None:
                 resp=web.Response(body=json.dumps(r,ensure_ascii=False,default =lambda o:o.__dict__).encode('utf-8'))
                 resp.content_type='application/json;charset=utf-8'
-                reutrn resp
+                return resp
             else:
                 resp = web.Response(body=app['__templating__'].get_template(template).render(**r).encode('utf-8'))
                 resp.content_type='text/html;charset=utf-8'
                 return resp
-       if isinstance(r,int) and r>=100 and r<600:
+
+        if isinstance(r,int) and r>=100 and r<600:
             return web.Response(r)
         if isinstance(r,tumple) and len(r)==2:
             t,m=r
             if isinstance(t,int) and t>=100 and t<600:
-                reurn web.Response(t,str(m))
+                return web.Response(t,str(m))
         # default
         resp=web.Response(body=str(r).encode('utf-8'))
         resp.content_type='text/plain;charset=utf-8'
@@ -166,14 +168,20 @@ def datetime_filter(t):
         return u'%s天前' %(delta//86400)
     dt=datetime.fromtimestamp(t)
     return r'%s年%s月%s日' %(dt.year,dt.month,dt.day)
+
+
 @get('/')
 def index(request):
-    users=yield from User.findAll()
-    return {
-        '__template__':'test.html',
-        'users':users
-    }
-
+    return web.Response(body=b'<h1>Awesome</h1>',content_type='text/html')
+    # users=yield from User.findAll()
+    # return {
+    #     '__template__':'test.html'
+    # }
+    # users=yield from User.findAll()
+    # return {
+    #     '__template__':'test.html',
+    #     'users':users
+    # }
 
 '''
 async def init():
@@ -193,7 +201,7 @@ async def init():
     add_static(app)
 '''
 async def init(loop):
-    await orm.create_pool(loop=loop,host='127.0.0.1',port=3306,user='www',password='www',db='awesome')
+    await orm.create_pool(loop=loop,host='127.0.0.1',port=3306,user='root',password='rootpwd',database='awesome')
     app=web.Application(loop=loop,middlewares=[logger_factory,response_factory])
     init_jinja2(app,filters=dict(datetime=datetime_filter))
     add_routes(app,'handlers')
@@ -207,5 +215,5 @@ async def init(loop):
     logging.info('server started at http://127.0.0.1:9000...')
     # return srv
 loop=asyncio.get_event_loop()
-loop.run_until_complete(init())
+loop.run_until_complete(init(loop))
 loop.run_forever()
