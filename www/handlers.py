@@ -8,12 +8,12 @@ from models import *
 @get('/')
 async def index(request):
     # return web.Response(body=b'<h1>Awesome</h1>',content_type='text/html')
-    users=await User.findAll()
+    blogs=await Blog.findAll()
     # return {
         # '__template__':'test.html'
     # }
     # users=yield from User.findAll()
     return {
-        '__template__':'test.html',
-        'users':users
+        '__template__':'index.html',
+        'blogs':blogs
     }
