@@ -180,6 +180,7 @@ async def response_factory(app, handler):
         # default
         resp = web.Response(body=str(r).encode('utf-8'))
         resp.content_type = 'text/plain;charset=utf-8'
+        logging.info('--------------response_factory--------: %s' %resp)
         return resp
 
     return response
@@ -227,7 +228,7 @@ async def init(loop):
     # srv =await loop.create_server(app.make_handler(),'127.0.0.1',9000)
     runner = web.AppRunner(app)
     await runner.setup()
-    site = web.TCPSite(runner, '127.0.0.1', 9000)
+    site = web.TCPSite(runner, '127.0.0.1', 10000)
     await site.start()
 
     logging.info('server started at http://127.0.0.1:9000...')

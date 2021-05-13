@@ -84,6 +84,7 @@ async def api_register_user(*, email, name, passwd):
         raise APIValueError('email')
     if not passwd or not _RE_SHA1.match(passwd):
         raise APIValueError('passwd')
+    logging.info('---------------api_register_user---------------------: %s' %email)
     users = await User.findAll('email=?', [email])
     if len(users) > 0:
         raise APIError('register:failed', 'email', 'email is already in use.')
