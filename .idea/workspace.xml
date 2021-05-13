@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="41779ddf-5c31-4040-93db-d5bedf2ec94f" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JupyterTrust" id="f05d515c-410c-48e9-9f84-4b9b08439f66" />
+  <component name="ProjectId" id="1sQyB0cFMvzdV7VhYBOJyV3PYrR" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\python_charm\博客项目\awesome_python3_webapp\www" />
+      <recent name="D:\python_charm\博客项目\awesome_python3_webapp" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="awesome_python3_webapp" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/www" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/www/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.app" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="41779ddf-5c31-4040-93db-d5bedf2ec94f" name="Default Changelist" comment="" />
+      <created>1620818969007</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1620818969007</updated>
+      <workItem from="1620818973256" duration="27036000" />
+      <workItem from="1620892559477" duration="13170000" />
+      <workItem from="1620926234420" duration="1861000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="555" y="120" key="#Python" timestamp="1620834801325">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="555" y="120" key="#Python/0.0.1536.824@0.0.1536.824" timestamp="1620834801325" />
+    <state x="156" y="98" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1620819057505">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="156" y="98" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1620819057505" />
+    <state width="1493" height="195" key="GridCell.Tab.0.bottom" timestamp="1620926900208">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="195" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1620926900208" />
+    <state width="1493" height="195" key="GridCell.Tab.0.center" timestamp="1620926900208">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="195" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1620926900208" />
+    <state width="1493" height="195" key="GridCell.Tab.0.left" timestamp="1620926900208">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="195" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1620926900208" />
+    <state width="1493" height="195" key="GridCell.Tab.0.right" timestamp="1620926900208">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="195" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1620926900208" />
+    <state width="1493" height="119" key="GridCell.Tab.1.bottom" timestamp="1620877249087">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="119" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1620877249087" />
+    <state width="1493" height="119" key="GridCell.Tab.1.center" timestamp="1620877249087">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="119" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1620877249087" />
+    <state width="1493" height="119" key="GridCell.Tab.1.left" timestamp="1620877249087">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="119" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1620877249087" />
+    <state width="1493" height="119" key="GridCell.Tab.1.right" timestamp="1620877249087">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="119" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1620877249087" />
+    <state x="313" y="141" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1620875298358">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="313" y="141" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1536.824@0.0.1536.824" timestamp="1620875298358" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/www/handlers.py</url>
+          <line>90</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/www/handlers.py</url>
+          <line>91</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/www/handlers.py</url>
+          <line>100</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/www/app.py</url>
+          <line>238</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/www/app.py</url>
+          <line>231</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/www/app.py</url>
+          <line>228</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/www/coroweb01.py</url>
+          <line>100</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/awesome_python3_webapp$app.coverage" NAME="app Coverage Results" MODIFIED="1620926900192" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/www" />
+  </component>
+</project>
