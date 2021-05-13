@@ -222,7 +222,7 @@ class Model(dict,metaclass=ModelMetaclass):
 
 
 
-class User(Model):
-    __table__='users'
-    id =IntegerField(primary_key=True)
-    name=StringField()
+# class User(Model):
+#     __table__='users'
+#     id =IntegerField(primary_key=True)
+#     name=StringField()
