@@ -55,7 +55,7 @@ def get_named_kw_args(fn):
     params = inspect.signature(fn).parameters
     for name, param in params.items():
         if param.kind == inspect.Parameter.KEYWORD_ONLY:
-            args.append(param)
+            args.append(name)
     return tuple(args)
 
 
