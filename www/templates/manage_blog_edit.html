@@ -9,7 +9,6 @@
 var
     ID = '{{ id }}',
     action = '{{ action }}';
-
 function initVM(blog) {
     var vm = new Vue({
         el: '#vm',
@@ -18,7 +17,9 @@ function initVM(blog) {
             submit: function (event) {
                 event.preventDefault();
                 var $form = $('#vm').find('form');
-                $form.postJSON(action, this.$data, function (err, r) {
+                params=this.$data
+                if(ID){params.blog_id=ID} //多传一个blog_id判断是修改还是第一次编辑
+                $form.postJSON(action, params, function (err, r) {
                     if (err) {
                         $form.showFormError(err);
                     }
