@@ -99,7 +99,8 @@ async def index(request):
 
 
 @get('/')
-async def index(*, page='1'):
+async def index(*, page='1', request):
+    user = request.__user__
     page_index = get_page_index(page)
     num = await Blog.findNumber('count(id)')
     page = Page(num)
@@ -110,7 +111,8 @@ async def index(*, page='1'):
     return {
         '__template__': 'blogs.html',
         'page': page,
-        'blogs': blogs
+        'blogs': blogs,
+        '__user__': user,
     }
 
 
